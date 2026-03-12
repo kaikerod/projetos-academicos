@@ -4,3 +4,11 @@ class CartaoDeCredito:
         self.limite_total = limite_total
         self.limite_disponivel = limite_disponivel
         self.valor_fatura = valor_fatura
+
+    def comprar(self, valor):
+      if valor > self.limite_disponivel:
+          print("Erro: Saldo insuficiente")
+          return False
+      self.limite_disponivel -= valor
+      self.valor_fatura += valor
+      return True
