@@ -24,14 +24,15 @@ class CartaoDeCredito:
     def ver_limite_disponivel(self):
       return f'Limite disponível: R$ {self._limite_disponivel:.2f}'
 
-    def comprar(self, valor):
+    def comprar(self, valor, descricao=""):
       if valor > self._limite_disponivel:
           console.print(f"[bold red]❌ ERRO: Saldo insuficiente para compra de R$ {valor:.2f}[/]")
           return False
+      descricao = f"🛍️ Compra - {descricao.strip()}" if descricao.strip() else "🛍️ Compra"
       console.print(f"[bold green]✅ COMPRA: R$ {valor:.2f} aprovada com sucesso![/]")
       self._limite_disponivel -= valor
       self.valor_fatura += valor
-      self.historico_compras.append(("🛍️ Compra", valor))
+      self.historico_compras.append((descricao, valor))
       return True
 
     def pagar_fatura(self, valor):
@@ -126,9 +127,10 @@ while True:
         cartao.exibir_status()
     elif opcao == "2":
         try:
+            descricao = Prompt.ask("[bold cyan]Digite a descrição da compra[/] [dim](pressione Enter para pular)[/]")
             valor_str = Prompt.ask("[bold green]Digite o valor da compra (R$)[/]")
             valor = float(valor_str)
-            cartao.comprar(valor)
+            cartao.comprar(valor, descricao)
             console.print()
         except ValueError:
             console.print("[bold red]❌ ERRO: Digite um valor numérico válido.[/]\n")
