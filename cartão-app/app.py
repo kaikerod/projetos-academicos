@@ -16,6 +16,7 @@ class CartaoDeCredito:
       if valor > self._limite_disponivel:
           print("Erro: Saldo insuficiente")
           return False
+      print(f"Compra realizada com sucesso, no valor de {valor}\n")
       self._limite_disponivel -= valor
       self.valor_fatura += valor
       return True
@@ -28,9 +29,11 @@ class CartaoDeCredito:
       self._limite_disponivel += valor
       return True
 
+    @property
     def ver_fatura(self):
       return f'Fatura atual: {self.valor_fatura}'
 
+    @property
     def ver_limite_total(self):
       return f'Limite total: {self._limite_total}'
 
@@ -44,5 +47,7 @@ class CartaoDeCredito:
 
 cartao1 = CartaoDeCredito("Kaike")
 print(cartao1.ver_limite_disponivel)
-print(cartao1.ver_fatura())
-print(cartao1.ver_limite_total())
+print(cartao1.ver_limite_total)
+cartao1.comprar(100)
+print(cartao1.ver_fatura)
+print(cartao1.ver_limite_disponivel)
