@@ -50,6 +50,12 @@ class CartaoDeCredito:
       return f'Limite total: R$ {self._limite_total:.2f}'
 
     def aumentar_limite(self, valor):
+      if self.valor_fatura < self._limite_total * 0.8:
+          percentual_consumido = (self.valor_fatura / self._limite_total) * 100
+          console.print(f"\n[bold red]❌ ERRO: Aumento não permitido. Você consumiu apenas {percentual_consumido:.1f}% do seu limite.[/]")
+          console.print(f"[bold yellow]É necessário consumir ao menos 80% do limite total para solicitar um aumento.[/]\n")
+          return False
+          
       if valor > self._limite_total * 0.3:
           console.print(f"\n[bold red]❌ ERRO: Valor de R$ {valor:.2f} excede 30% do limite total.[/]")
           return False
