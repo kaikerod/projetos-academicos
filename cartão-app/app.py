@@ -15,6 +15,7 @@ class CartaoDeCredito:
         self._limite_total = 2500
         self._limite_disponivel = 2500
         self.valor_fatura = 0
+        self.historico_compras = []
 
     def __str__(self):
       return f"Cartão de Crédito de {self.titular}"
@@ -30,6 +31,7 @@ class CartaoDeCredito:
       console.print(f"[bold green]✅ COMPRA: R$ {valor:.2f} aprovada com sucesso![/]")
       self._limite_disponivel -= valor
       self.valor_fatura += valor
+      self.historico_compras.append(f"🛍️ Compra: R$ {valor:.2f}")
       return True
 
     def pagar_fatura(self, valor):
@@ -39,6 +41,7 @@ class CartaoDeCredito:
       console.print(f"[bold green]✅ PAGAMENTO: R$ {valor:.2f} realizado com sucesso![/]")
       self.valor_fatura -= valor
       self._limite_disponivel += valor
+      self.historico_compras.append(f"💰 Pagamento: R$ {valor:.2f}")
       return True
 
     @property
@@ -63,6 +66,26 @@ class CartaoDeCredito:
       self._limite_disponivel += valor
       console.print(f"[bold green]✅ SUCESSO: Limite aumentado em R$ {valor:.2f}[/]\n")
       return True
+
+    def exibir_extrato(self):
+        if not self.historico_compras:
+            console.print("[bold yellow]Nenhuma compra realizada ainda.[/]\n")
+            return
+        
+        table = Table(show_header=True, header_style="bold magenta", expand=True)
+        table.add_column("Descrição", style="cyan")
+        table.add_column("Valor", style="bold green", justify="right")
+        
+        for compra in self.historico_compras:
+            table.add_row(compra)
+        
+        panel = Panel(
+            table,
+            title=f"💳 Extrato do Cartão: [bold yellow]{self.titular.upper()}[/]",
+            border_style="cyan"
+        )
+        console.print(panel)
+        console.print()
 
     def exibir_status(self):
         table = Table(show_header=True, header_style="bold magenta", expand=True)
@@ -90,11 +113,12 @@ while True:
         "[bold cyan]2.[/] Comprar\n"
         "[bold cyan]3.[/] Pagar Fatura\n"
         "[bold cyan]4.[/] Aumentar Limite\n"
-        "[bold cyan]5.[/] [bold red]Sair[/]"
+        "[bold cyan]5.[/] Ver Extrato\n"
+        "[bold cyan]6.[/] [bold red]Sair[/]"
     )
     console.print(Panel(menu_text, title="[bold blue]MENU DO CARTÃO DE CRÉDITO[/]", border_style="blue", expand=False))
     
-    opcao = Prompt.ask("[bold yellow]Escolha uma opção[/]", choices=["1", "2", "3", "4", "5"])
+    opcao = Prompt.ask("[bold yellow]Escolha uma opção[/]", choices=["1", "2", "3", "4", "5", "6"])
     clear_screen()
     
     if opcao == "1":
@@ -124,5 +148,7 @@ while True:
         except ValueError:
             console.print("[bold red]❌ ERRO: Digite um valor numérico válido.[/]\n")
     elif opcao == "5":
+        cartao.exibir_extrato()
+    elif opcao == "6":
         console.print("[bold blue]🌟 Obrigado por usar o sistema![/]\n")
         break
