@@ -32,7 +32,7 @@ class CartaoDeCredito:
       return f'Fatura atual: {self.valor_fatura}'
 
     def ver_limite_total(self):
-      return f'Limite total: {self.limite_total}'
+      return f'Limite total: {self._limite_total}'
 
     def aumentar_limite(self, valor):
       if valor > self._limite_total:
@@ -41,3 +41,8 @@ class CartaoDeCredito:
       self._limite_total += valor
       self._limite_disponivel += valor
       return True
+
+cartao1 = CartaoDeCredito("Kaike")
+print(cartao1.ver_limite_disponivel)
+print(cartao1.ver_fatura())
+print(cartao1.ver_limite_total())
