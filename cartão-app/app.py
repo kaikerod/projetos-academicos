@@ -31,7 +31,7 @@ class CartaoDeCredito:
       console.print(f"[bold green]✅ COMPRA: R$ {valor:.2f} aprovada com sucesso![/]")
       self._limite_disponivel -= valor
       self.valor_fatura += valor
-      self.historico_compras.append(f"🛍️ Compra: R$ {valor:.2f}")
+      self.historico_compras.append(("🛍️ Compra", valor))
       return True
 
     def pagar_fatura(self, valor):
@@ -41,7 +41,7 @@ class CartaoDeCredito:
       console.print(f"[bold green]✅ PAGAMENTO: R$ {valor:.2f} realizado com sucesso![/]")
       self.valor_fatura -= valor
       self._limite_disponivel += valor
-      self.historico_compras.append(f"💰 Pagamento: R$ {valor:.2f}")
+      self.historico_compras.append(("💰 Pagamento", valor))
       return True
 
     @property
@@ -65,8 +65,8 @@ class CartaoDeCredito:
       self._limite_total += valor
       self._limite_disponivel += valor
       console.print(f"[bold green]✅ SUCESSO: Limite aumentado em R$ {valor:.2f}[/]\n")
+      self.historico_compras.append(("🚀 Aumento de limite", valor))
       return True
-      self.historico_compras.append(f"💰 Aumento de limite: R$ {valor:.2f}")
 
     def exibir_extrato(self):
         if not self.historico_compras:
@@ -77,8 +77,8 @@ class CartaoDeCredito:
         table.add_column("Descrição", style="cyan")
         table.add_column("Valor", style="bold green", justify="right")
         
-        for compra in self.historico_compras:
-            table.add_row(compra)
+        for descricao, valor in self.historico_compras:
+            table.add_row(descricao, f"R$ {valor:.2f}")
         
         panel = Panel(
             table,
