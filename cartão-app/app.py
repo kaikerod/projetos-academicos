@@ -66,6 +66,7 @@ class CartaoDeCredito:
       self._limite_disponivel += valor
       console.print(f"[bold green]✅ SUCESSO: Limite aumentado em R$ {valor:.2f}[/]\n")
       return True
+      self.historico_compras.append(f"💰 Aumento de limite: R$ {valor:.2f}")
 
     def exibir_extrato(self):
         if not self.historico_compras:
