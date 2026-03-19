@@ -55,7 +55,7 @@ Feel free to explore, clone, and get inspired.
 
 If you have any questions, suggestions, or want to chat, you can find me at:
 
-* **LinkedIn:** `https://www.linkedin.com/in/kaike-rodrigues-0b8561358/`
+* **LinkedIn:** `https://www.linkedin.com/in/kaike-rodrigues/`
 * **Email:** `contato.kaikevinicius@gmail.com`
 
 Thanks for visiting!
