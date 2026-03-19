@@ -24,7 +24,7 @@ Sinta-se à vontade para explorar, clonar, e se inspirar.
 
 Se tiver alguma dúvida, sugestão ou quiser bater um papo, pode me encontrar em:
 
-* **LinkedIn:** `https://www.linkedin.com/in/kaike-rodrigues-0b8561358/`
+* **LinkedIn:** `https://www.linkedin.com/in/kaike-rodrigues/`
 * **Email:** `contato.kaikevinicius@gmail.com`
 
 ---
