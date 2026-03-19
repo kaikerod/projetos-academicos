@@ -44,3 +44,52 @@ Para manter o simulador realista, foram implementadas algumas condições para a
 ## 👤 Autor
 
 Desenvolvido por **Kaike**.
+
+---
+
+# 💳 Credit Card Simulator
+
+This is a simple Python project that simulates credit card management via the terminal. The application uses the **Rich** library to provide an elegant, colorful, and interactive user interface directly in the console.
+
+## 🚀 Features
+
+- **Status Check:** Clearly visualize your total limit, available limit, and current statement balance.
+- **Purchases with Categories:** Simulate purchases by choosing from categories (Food, Health, Grocery, etc.) for better organization.
+- **Statement Payment:** Make a full or partial payment of your statement to restore your limit.
+- **Limit Increase Request:** Attempt to increase your total limit (with business rules based on usage).
+- **Detailed Statement:** Track the full transaction history in an organized table.
+- **Visualization by Category:** View your spending grouped by category with automatic subtotals for each.
+- **Interactive Interface:** Intuitive menu with colorful feedback for errors and successes.
+
+## 🛠️ Technologies Used
+
+- **Python 3.x**
+- **Rich:** For terminal styling, tables, panels, and prompts.
+
+## 📋 Prerequisites
+
+Ensure you have Python installed on your machine. You will also need to install the `rich` library.
+
+```bash
+pip install rich
+```
+
+## 🏃 How to Run
+
+1. Clone the repository or download the `app.py` file.
+2. Navigate to the project folder in the terminal.
+3. Run the command:
+
+```bash
+python app.py
+```
+
+## ⚖️ Business Rules (Limit Increase)
+
+To keep the simulator realistic, some conditions were implemented for limit increase approval:
+1. **Minimum Usage:** You must have consumed at least **80%** of your current total limit to be eligible.
+2. **Maximum Value:** The requested increase cannot exceed **30%** of your current total limit.
+
+## 👤 Author
+
+Developed by **Kaike**.

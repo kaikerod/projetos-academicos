@@ -74,18 +74,6 @@ curl -X POST http://localhost:5000/api/vendas \
   -d '{"produto": "Mouse", "valor": 150.00, "data_venda": "2025-03-01"}'
 ```
 
-### Exemplo — Resposta da Análise (`GET /api/analise`)
-
-```json
-{
-  "total_vendas": 10150.0,
-  "quantidade_vendas": 6,
-  "produto_mais_vendido": "Notebook",
-  "produto_mais_lucrativo": "Notebook",
-  "media_vendas_por_dia": 2030.0
-}
-```
-
 ---
 
 ## 🛠️ Tecnologias
@@ -112,3 +100,108 @@ Gerencia a lista de vendas e oferece métodos de análise:
 - `produto_mais_vendido()` — Produto com maior quantidade de vendas
 - `produto_mais_lucrativo()` — Produto com maior receita total
 - `media_vendas_por_dia()` — Média de valores vendidos por dia
+
+---
+
+# 📊 Sales Analysis System
+
+Web dashboard to manage and analyze product sales, built with **Python/Flask** and a modern frontend.
+
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-3.x-000000?logo=flask&logoColor=white)
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---|---|
+| **Dashboard with metrics** | Cards displaying total sales, quantity, best-selling product, and most profitable product |
+| **Sales Registration** | Form to add new sales (product, value, date) |
+| **Sales Listing** | Table with all registered sales |
+| **Filter by Value** | Filter sales above a minimum value |
+| **Automatic Analysis** | Best-selling product, most profitable product, and average sales per day |
+
+---
+
+## 🚀 How to Run
+
+### Prerequisites
+
+- Python 3.8+
+- pip
+
+### Installation
+
+```bash
+# Clone the repository or navigate to the project folder
+cd vendas
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the application
+python app.py
+```
+
+Access **http://localhost:5000** in your browser.
+
+---
+
+## 📁 Project Structure
+
+```
+vendas/
+├── app.py               # Flask server + business classes
+├── requirements.txt     # Python dependencies
+├── README.md            # Documentation
+└── templates/
+    └── index.html       # Frontend (HTML/CSS/JS)
+```
+
+---
+
+## 🔌 REST API
+
+| Method | Endpoint | Description |
+|--------|----------|-----------|
+| `GET` | `/` | Main page (dashboard) |
+| `GET` | `/api/vendas` | Lists all sales |
+| `POST` | `/api/vendas` | Adds a new sale |
+| `GET` | `/api/vendas/filtro?valor_minimo=X` | Filters sales above the value |
+| `GET` | `/api/analise` | Returns metrics and analysis |
+
+### Example — Add Sale
+
+```bash
+curl -X POST http://localhost:5000/api/vendas \
+  -H "Content-Type: application/json" \
+  -d '{"produto": "Mouse", "valor": 150.00, "data_venda": "2025-03-01"}'
+```
+
+---
+
+## 🛠️ Technologies
+
+- **Backend:** Python, Flask
+- **Frontend:** HTML5, CSS3 (vanilla), JavaScript (vanilla) — *Developed by AI*
+- **Typography:** Google Fonts (Inter)
+- **Design:** Dark theme, gradients, micro-animations
+
+---
+
+## 📝 Main Classes
+
+### `Venda`
+Represents an individual sale with product, value, and date.
+
+### `AnaliseVendas`
+Manages the sales list and offers analysis methods:
+
+- `adicionar_venda(venda)` — Adds a sale to the list
+- `vendas_acima_de(valor_minimo)` — Filters sales above a value
+- `total_vendas()` — Total sum of all sales
+- `total_vendas_periodo(inicio, fim)` — Total in a specific period
+- `produto_mais_vendido()` — Product with the highest quantity of sales
+- `produto_mais_lucrativo()` — Product with the highest total revenue
+- `media_vendas_por_dia()` — Average sales value per day

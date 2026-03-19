@@ -27,6 +27,35 @@ Se tiver alguma dúvida, sugestão ou quiser bater um papo, pode me encontrar em
 * **LinkedIn:** `https://www.linkedin.com/in/kaike-rodrigues-0b8561358/`
 * **Email:** `contato.kaikevinicius@gmail.com`
 
+---
 
+# My Personal Projects
 
-Obrigado pela visita!
+Welcome to my central repository of personal projects! 👋
+
+This space was created to store, document, and share all the projects I develop in my free time. Here, you will find a diverse collection of work, from small experiments and scripts to more complete applications.
+
+The main purpose of this repository is to serve as:
+
+* **A practical portfolio:** Demonstrating my skills and interests in different areas of technology.
+* **A learning ground:** Where I test new tools, languages, and concepts.
+* **A record of my progress:** Tracking my evolution as a developer/creator.
+
+## 🚀 Navigation
+
+Each project is contained in its own directory. Inside each one, you will usually find a specific `README.md` with details about that project, such as:
+
+* The technology used.
+* The problem it solves.
+* How to run it locally.
+
+Feel free to explore, clone, and get inspired.
+
+## 📫 Contact
+
+If you have any questions, suggestions, or want to chat, you can find me at:
+
+* **LinkedIn:** `https://www.linkedin.com/in/kaike-rodrigues-0b8561358/`
+* **Email:** `contato.kaikevinicius@gmail.com`
+
+Thanks for visiting!
