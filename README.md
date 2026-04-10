@@ -4,15 +4,6 @@ Bem-vindo(a) ao meu repositório central! Este espaço foi criado para documenta
 
 ---
 
-## 🎨 Portfólio Interativo | Interactive Portfolio
-
-Desenvolvi uma **Landing Page exclusiva** para que você possa visualizar e navegar entre os projetos de forma fluida e moderna, com animações e micro-interações:
-
-### [👉 Clique aqui para ver o Portfólio Interativo 👈](portfolio/index.html)
-
-*(Basta abrir o arquivo no seu navegador para ver o design completo)*
-
----
 
 ## 🚀 Navegação pelos Projetos | Project Navigation
 
@@ -40,6 +31,6 @@ Vamos bater um papo? Você pode me encontrar em:
 
 ### *My Personal Projects (EN Summary)*
 
-This repository stores all the projects I develop in my free time to test new tools and concepts. Check out the **[Interactive Portfolio](portfolio/index.html)** for the best experience!
+This repository stores all the projects I develop in my free time to test new tools and concepts.
 
 Thanks for visiting! 🚀
